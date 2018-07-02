@@ -1,6 +1,6 @@
 # Kubla Khan
 
-A collection of commands I use for personal work. Unless otherwise states, all commands should only be assumed to run on the most recent Stata release.
+A collection of commands I use for personal work. Unless otherwise stated, all commands should only be assumed to run on the most recent Stata release.
 
 ## Installing
 
