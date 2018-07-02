@@ -31,13 +31,12 @@
 
 {pstd}
 {cmd:numlevels} calculates the number of unique levels of
-{varlist}.
-
+{varlist}. This is similar to referring to {bf:r(r)} after calling
+{manhelp levelsof} but prints the results in a single command.
 
 
 {marker examples}{...}
 {title:Examples}
-
 
 {phang2}{cmd:. sysuse auto, clear}{p_end}
 {phang2}{cmd:. numlevels rep78}{p_end}
