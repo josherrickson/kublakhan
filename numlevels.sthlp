@@ -32,7 +32,7 @@
 {pstd}
 {cmd:numlevels} calculates the number of unique levels of
 {varlist}. This is similar to referring to {bf:r(r)} after calling
-{manhelp levelsof} but prints the results in a single command.
+{manhelp levelsof P} but prints the results in a single command.
 
 
 {marker examples}{...}
