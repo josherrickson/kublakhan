@@ -1,5 +1,6 @@
 d 'KUBLAKHAN': A collection of personal ado files for Stata.
 d
+d Distribution-Date: 20180602
 d
 F fencode.ado
 F numlevels.ado
