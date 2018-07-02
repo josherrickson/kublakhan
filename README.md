@@ -16,6 +16,12 @@ Then you can install this module using
 github install josherrickson/kublakhan
 ```
 
+If you'd prefer not to use the github package, or it's not working, you can install it directly with:
+
+```
+net install kublakhan, from("https://raw.githubusercontent.com/josherrickson/kublakhan/master")
+```
+
 ## Why "Kubla Khan"?
 
 I was looking for something that was unlikely to conflict with real modules on SSC and because XanADO was too puntastic.
