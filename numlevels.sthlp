@@ -51,4 +51,4 @@
 
 {synoptset 20 tabbed}{...}
 {p2col 5 20 24 2: Scalars}{p_end}
-{synopt:{cmd:e(r)}}number of levels{p_end}
+{synopt:{cmd:r(r)}}number of levels{p_end}
