@@ -22,6 +22,11 @@ If you'd prefer not to use the github package, or it's not working, you can inst
 net install kublakhan, from("https://raw.githubusercontent.com/josherrickson/kublakhan/master")
 ```
 
+## Commands
+
+- `numlevels`: Returns the number of unique values in a variable. Similar to printing `r(r)` after a `levelsof` command, but quicker.
+- `fencode`: Encodes string variables to numeric with labels, essentially allowing `encode, replace`.
+
 ## Why "Kubla Khan"?
 
 I was looking for something that was unlikely to conflict with real modules on SSC and because XanADO was too puntastic.
