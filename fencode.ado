@@ -10,10 +10,10 @@ program fencode
 			order `varname'2, after(`varname')
 			drop `varname'
 			rename `varname'2 `varname'
-			di `"Variable "`varname'" encoded."'
+			display as txt "Variable {input:`varname'} encoded."
 		}
 		else {
-			di `"Skipping "`varname'", not a string."'
+			display as txt "Skipping {input:`varname'}, not a string."
 		}
 		local i = `i' + 1
 	}
