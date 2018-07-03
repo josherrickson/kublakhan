@@ -3,11 +3,10 @@
 {findalias asfradohelp}{...}
 {vieweralsosee "" "--"}{...}
 {vieweralsosee "[R] help" "help help"}{...}
-{viewerjumpto "Syntax" "examplehelpfile##syntax"}{...}
-{viewerjumpto "Description" "examplehelpfile##description"}{...}
-{viewerjumpto "Options" "examplehelpfile##options"}{...}
-{viewerjumpto "Remarks" "examplehelpfile##remarks"}{...}
-{viewerjumpto "Examples" "examplehelpfile##examples"}{...}
+{viewerjumpto "Syntax" "numlevels##syntax"}{...}
+{viewerjumpto "Description" "numlevels##description"}{...}
+{viewerjumpto "Examples" "numlevels##examples"}{...}
+{viewerjumpto "Stored results" "numlevels##results"}{...}
 {title:Title}
 
 {phang}
@@ -19,11 +18,8 @@
 
 {p 8 17 2}
 {cmdab:numlevels}
-[{varlist}]
+[{varname}]
 {ifin}
-
-{p 4 6 2}
-{cmd:by} is allowed; see {manhelp by D}.{p_end}
 
 
 {marker description}{...}
@@ -31,16 +27,16 @@
 
 {pstd}
 {cmd:numlevels} calculates the number of unique levels of
-{varlist}. This is similar to referring to {bf:r(r)} after calling
-{manhelp levelsof P} but prints the results in a single command.
+{varname}. This is similar to referring to {input:r(r)} after calling
+{help levelsof} but prints the results in a single command.
 
 
 {marker examples}{...}
 {title:Examples}
 
-{phang2}{cmd:. sysuse auto, clear}{p_end}
-{phang2}{cmd:. numlevels rep78}{p_end}
-{phang2}{cmd:. numlevels rep78 if foreign == 1}{p_end}
+{phang2}{stata sysuse auto:. sysuse auto}{p_end}
+{phang2}{stata numlevels rep78:. numlevels rep78}{p_end}
+{phang2}{stata numlevels rep78 if foreign == 1:. numlevels rep78 if foreign == 1}{p_end}
 
 
 {marker results}{...}

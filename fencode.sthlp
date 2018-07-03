@@ -3,11 +3,9 @@
 {findalias asfradohelp}{...}
 {vieweralsosee "" "--"}{...}
 {vieweralsosee "[R] help" "help help"}{...}
-{viewerjumpto "Syntax" "examplehelpfile##syntax"}{...}
-{viewerjumpto "Description" "examplehelpfile##description"}{...}
-{viewerjumpto "Options" "examplehelpfile##options"}{...}
-{viewerjumpto "Remarks" "examplehelpfile##remarks"}{...}
-{viewerjumpto "Examples" "examplehelpfile##examples"}{...}
+{viewerjumpto "Syntax" "fencode##syntax"}{...}
+{viewerjumpto "Description" "fencode##description"}{...}
+{viewerjumpto "Examples" "fencode##examples"}{...}
 {title:Title}
 
 {phang}
@@ -21,17 +19,23 @@
 {cmdab:fencode}
 [{varlist}]
 
+
 {marker description}{...}
 {title:Description}
 
 {pstd}
-{cmd:fencode} encodes string variables into numeric, replacing the original variable. {manhelp encode D} does
-not support replacing, requiring several steps (encode to a new variable, drop the old variable, properly
-order, rename). This does it in one step, as well as supporting multiple variables at once.
+The {help encode} command does not support a {cmd:replace} option, leading to a frequent workflow of 1) using
+{cmd:encode ..., generate(...)}, 2) reordering the variables, 3) deleting the original, 4) renaming the new
+variable. {cmd:fencode} (for {bf:f}orce {bf:encode}) makes this one step. Additionally, it supports multiple
+variables in the {varlist} at once.
+
+{pstd}
+If a non-string variable is passed, a message will be printed but no action taken. (Messages can be suppressed
+with {help quietly} as desired.)
 
 
 {marker examples}{...}
 {title:Examples}
 
-{phang2}{cmd:. sysuse auto, clear}{p_end}
-{phang2}{cmd:. fencode make mpg}{p_end}
+{phang2}{stata sysuse auto, clear:. sysuse auto, clear}{p_end}
+{phang2}{stata fencode make mpg:. fencode make mpg}{p_end}
