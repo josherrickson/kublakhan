@@ -10,6 +10,9 @@ program fencode
 			order `varname'__TMP__, after(`varname')
 			drop `varname'
 			rename `varname'__TMP__ `varname'
+      label copy `varname'__TMP__ `varname'_label
+      label drop `varname'__TMP__
+      label values `varname' `varname'_label
 			display as txt "Variable {input:`varname'} encoded."
 		}
 		else {
