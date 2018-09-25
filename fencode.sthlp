@@ -5,6 +5,7 @@
 {vieweralsosee "[R] help" "help help"}{...}
 {viewerjumpto "Syntax" "fencode##syntax"}{...}
 {viewerjumpto "Description" "fencode##description"}{...}
+{viewerjumpto "Options" "fencode##options"}{...}
 {viewerjumpto "Examples" "fencode##examples"}{...}
 {title:Title}
 
@@ -18,6 +19,12 @@
 {p 8 17 2}
 {cmdab:fencode}
 [{varlist}]
+
+{synoptset 20 tabbed}{...}
+{synopthdr}
+{synoptline}
+{synopt :{opt label:suffix(string)}}An optional suffix to append to each generated label.{p_end}
+{synopt :{opt overwrite:labels}}If existing labels with the same name (plus suffix if defined) exist, overwrite them.{p_end}
 
 
 {marker description}{...}
