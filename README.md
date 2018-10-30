@@ -16,6 +16,7 @@ This will allow `adoupdate` to check for updates and install them as needed.
 
 - `numlevels`: Returns the number of unique values in a variable. Similar to printing `r(r)` after a `levelsof` command, but quicker.
 - `fencode`: Encodes string variables to numeric with labels, essentially allowing `encode, replace`.
+- `isconstant`: Checks whether a variable is constant, optionally within each level of a grouping variable.
 
 ## Why "Kubla Khan"?
 
