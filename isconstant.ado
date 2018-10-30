@@ -1,6 +1,3 @@
-
-set trace off
-cap program drop isconstant
 program isconstant
   syntax varlist(min=1) [, by(varlist)]
   preserve
@@ -39,6 +36,3 @@ program isconstant
   }
   restore
 end
-
-sysuse auto, clear
-isconstant foreign mpg price, by(foreign )
