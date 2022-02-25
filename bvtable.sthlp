@@ -18,12 +18,14 @@
 
 {p 8 17 2}
 {cmd:bvtable}
-	[{cmd:, e}]
+	[{cmd:, e noci nopvalues}]
 
 {synoptset 20 tabbed}{...}
 {synopthdr}
 {synoptline}
-{synopt :{opt e}}Make {cmd:bvtable} look in {cmd:ereturn} instead of {cmd:return}{p_end}
+{synopt :{opt e}}Make {cmd:bvtable} look in {cmd:ereturn} instead of {cmd:return}.{p_end}
+{synopt :{opt noci}}suppresses confidence intervals from being reported in the coefficient table.{p_end}
+{synopt :{opt nopv:alues}}suppress {it:p}-values and their test statistics.{p_end}
 
 
 {marker description}{...}

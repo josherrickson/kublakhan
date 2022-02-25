@@ -1,54 +1,64 @@
-cap program drop bvtable
+*cap program drop bvtable
 program bvtable
-	syntax, [e]
+	syntax, [e noci nopv]
 	if "`e'" == "e" {
 		local returntype = 1
 	}
 	else {
 		local returntype = 0
 	}
-	mata: bv_to_table(`returntype')
+	if "`ci'" == "noci" {
+		local noci = 1
+	}
+	else {
+		local noci = 0
+	}
+	if "`pv'" == "nopv" {
+		local nopv = 1
+	}
+	else {
+		local nopv = 0
+	}
+	mata: bv_to_table(`returntype', `noci', `nopv')
 	matrix list table
 end
 
-
-cap mata: mata drop bv_to_table()
+*cap mata: mata drop bv_to_table()
 mata: 
-void bv_to_table(scalar returntype)
+void bv_to_table(scalar returntype, scalar noci, scalar nopv)
 {
-	if (returntype == 0) {
-		b = st_matrix("r(b)")
-		v = st_matrix("r(V)")
-		row_names = st_matrixcolstripe("r(b)")
+	if (returntype == 1) {
+		b = st_matrix("e(b)")'
+		v = st_matrix("e(V)")
+		rownames = st_matrixcolstripe("e(b)")
 	}
 	else
 	{
-		b = st_matrix("e(b)")
-		v = st_matrix("e(V)")
-		row_names = st_matrixcolstripe("e(b)")
+		b = st_matrix("r(b)")'
+		v = st_matrix("r(V)")
+		rownames = st_matrixcolstripe("r(b)")
 	}
 
-	se = sqrt( diagonal(v) )'
-	z = b:/se
-	pv = 2:*(1:- normal(abs(z)))
-	lb = b - invnormal(.975) * se
-	ub = b + invnormal(.975) * se
+	se = sqrt( diagonal(v) )
+	table = (b, se)
+	colnames = ("", "Coefficient" \ "", "Std. Err.")
+	if (nopv == 0) {
+		z = b :/ se
+		pv = 2 :* (1 :- normal(abs(z)))
+		table = (table, z, pv)
+		colnames = (colnames \ ("", "z" \ "", "P>|z|"))
+	}
+	if (noci == 0) {
+		lb = b - invnormal(.975) * se
+		ub = b + invnormal(.975) * se
+		table = (table, lb, ub)
+		colnames = (colnames \ ("", "[95% conf." \ "", "interval]"))
+	}
 
-	//format as a matrix
-	table_mat = (b', se', z', pv', lb', ub')
-	st_matrix("table", table_mat)
-
-	st_matrixrowstripe("table", row_names)
-
-	col_names = J(6, 2, "")
-	col_names[, 2] = ("diff", "se", "z", "pval", "LB", "UB")'
-	st_matrixcolstripe("table", col_names)
+	st_matrix("table", table)
+	st_matrixrowstripe("table", rownames)
+	st_matrixcolstripe("table", colnames)
 }
 end
 
-sysuse auto
-reg mpg price
-nlcom _b[price]^2
-bvtable
-bvtable, e
 
