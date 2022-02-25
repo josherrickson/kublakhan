@@ -1,6 +1,6 @@
 d 'KUBLAKHAN': A collection of personal ado files for Stata.
 d
-d Distribution-Date: 20201210
+d Distribution-Date: 20220225
 d
 F fencode.ado
 F fencode.sthlp
@@ -10,3 +10,5 @@ F isconstant.ado
 F isconstant.sthlp
 F timing.ado
 F timing.sthlp
+F bvtable.ado
+F bvtable.sthlp
