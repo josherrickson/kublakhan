@@ -17,8 +17,6 @@ program define standardize
 		}
 	}
 	
-	
-	
 	foreach var of varlist `varlist' {
 		quietly summarize `var'
 		if "`suffix'" != "" {
@@ -28,12 +26,11 @@ program define standardize
 		else {
 			local varname = "`var'"
 		}
-		replace `varname' = `varname' - r(mean)
  		if "`scale'" != "noscale" {
- 			replace `varname' = `varname'/r(sd)
+ 			replace `varname' = (`varname' - r(mean))/r(sd)
  		}
+		else {
+			replace `varname' = `varname' - r(mean)
+		}
 	}
-		
-		
-
 end

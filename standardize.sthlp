@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 0.0.1  25feb2022}{...}
+{* *! version 0.0.2  22feb2023}{...}
 {findalias asfradohelp}{...}
 {vieweralsosee "" "--"}{...}
 {vieweralsosee "[R] help" "help help"}{...}
