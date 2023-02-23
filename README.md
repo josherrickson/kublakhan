@@ -19,6 +19,7 @@ This will allow `adoupdate` to check for updates and install them as needed.
 - `isconstant`: Checks whether a variable is constant, optionally within each level of a grouping variable.
 - `timing`: A prefix (e.g. called as `timing: command`) to produce timing benchmark information.
 - `bvtable`: When a command (such as `nlcom`) retuns only `r(b)` and `r(V)` instead of `r(table)` (which includes p-value and CI), this will generate a matrix `table`.
+- `standardize`: A direct command to mean-center and optionally scale multiple variables.
 
 ## Why "Kubla Khan"?
 
