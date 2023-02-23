@@ -31,10 +31,13 @@
 {marker description}{...}
 {title:Description}
 
-{pstd} Many commands, such as {cmd:regress} and {cmd:nlcom}, display a coefficient table but only return a coefficient matrix ({cmd:r(b)} or {cmd:e(b)}) and a covariance matrix ({cmd:e(V)} or {cmd:r(V)}). {cmd:bvtable} will creat a matrix {cmd:table} for further use.
+{pstd} Many commands, such as {cmd:regress} and {cmd:nlcom}, display a
+coefficient table but only return a coefficient matrix ({cmd:r(b)} or
+{cmd:e(b)}) and a covariance matrix ({cmd:e(V)} or {cmd:r(V)}). {cmd:bvtable}
+will create a matrix {cmd:table} for further use.
 
-{pstd}
-By default, {cmd:bvtable} will look at {cmd:r(b)} and {cmd:r(V)}, but if the open {cmd:e} is included, it will instead look in {cmd:e(b)} and {cmd:e(V)}.
+{pstd} By default, {cmd:bvtable} will look at {cmd:r(b)} and {cmd:r(V)}, but if
+the open {cmd:e} is included, it will instead look in {cmd:e(b)} and {cmd:e(V)}.
 
 {marker examples}{...}
 {title:Examples}
