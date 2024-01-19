@@ -1,7 +1,19 @@
 *cap program drop standardize
 program define standardize
-	syntax varlist(min=1 numeric) [, noscale SUffix(string)]
+	syntax varlist(min=1) [, noscale REplace SUffix(string)]
 	
+	* Ensure exactly one of `replace' or `suffix' is passed
+	capture opts_exclusive "`replace' `suffix'"
+	if _rc | "`replace'" == "" & "`suffix'" == "" {
+		display as smcl as error "exactly  one of {bf:replace} or {bf:suffix} must specified"
+		if _rc {
+      exit _rc
+		} 
+		else {
+			exit 198
+		}
+	}
+
 	* Ensure if suffix is passed, no name conflicts
 	if "`suffix'" != "" {
 		local exit = 0
@@ -18,19 +30,24 @@ program define standardize
 	}
 	
 	foreach var of varlist `varlist' {
-		quietly summarize `var'
-		if "`suffix'" != "" {
-			gen `var'`suffix' = `var'
-			local varname = "`var'`suffix'"
-		}
-		else {
-			local varname = "`var'"
-		}
- 		if "`scale'" != "noscale" {
- 			replace `varname' = (`varname' - r(mean))/r(sd)
- 		}
-		else {
-			replace `varname' = `varname' - r(mean)
-		}
+		if substr("`:type `var''" , 1, 3) == "str" {
+      display as txt "Skipping {input:`varname'}, strings cannot be standardized."
+    }
+    else {
+      quietly summarize `var'
+      if "`suffix'" != "" {
+        gen `var'`suffix' = `var'
+        local varname = "`var'`suffix'"
+      }
+      else {
+        local varname = "`var'"
+      }
+      if "`scale'" != "noscale" {
+        replace `varname' = (`varname' - r(mean))/r(sd)
+      }
+      else {
+        replace `varname' = `varname' - r(mean)
+      }
+    }
 	}
 end

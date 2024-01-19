@@ -24,7 +24,8 @@
 {synopthdr}
 {synoptline}
 {synopt :{opt noscale}}Do not scale variables, only center.{p_end}
-{synopt :{opt suffix}}If provided, generate new variables with the given suffix. If not provided, replace existing variables.{p_end}
+{synopt :{opt replace}}Replace existing variables. Exactly one of {opt replace} or {opt suffix} must be specified.{p_end}
+{synopt :{opt suffix}}Generate new variables with the given suffix. Exactly one of {opt replace} or {opt suffix} must be specified.{p_end}
 
 
 {marker description}{...}
@@ -37,6 +38,5 @@ For each variable, center the variables (to have mean 0) and optionally scale (t
 {title:Examples}
 
 {phang2}{stata sysuse auto, clear:. sysuse auto, clear}{p_end}
-{phang2}{stata standardize price mpg:. standardize price mpg}{p_end}
-{phang2}{stata standardize length weight, noscale:. standardize length weight, noscale}{p_end}
-{phang2}{stata standardize turn headroom, suffix("_z"):. standardize turn headroom, suffix("_z")}{p_end}
+{phang2}{stata standardize price mpg, replace:. standardize price mpg, replace}{p_end}
+{phang2}{stata standardize length weight, noscale suffix(_center):. standardize length weight, noscale suffix(_center)}{p_end}
