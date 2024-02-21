@@ -18,10 +18,11 @@ program fencode
         capture label drop `varname'`labelsuffix'
       }
       * __TMP__ is used to try and avoid name conflicts
-      encode `varname', gen(__TMP__) label(`varname'`labelsuffix')
-      order __TMP__, after(`varname')
+      tempvar x
+      encode `varname', gen(`x') label(`varname'`labelsuffix')
+      order `x', after(`varname')
       drop `varname'
-      rename __TMP__ `varname'
+      rename `x' `varname'
       display as txt "Variable {input:`varname'} encoded."
     }
     else {
